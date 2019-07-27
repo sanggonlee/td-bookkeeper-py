@@ -1,0 +1,134 @@
+[
+  {
+    "label": "Pay",
+    "patterns": [
+      "MyCompany"
+    ]
+  },
+  {
+    "label": "Tax",
+    "patterns": [
+      "TAX"
+    ]
+  },
+  {
+    "label": "Mort/Maint",
+    "patterns": [
+      "GENESIS ONE",
+      "MTGE",
+      "TOR HYD"
+    ]
+  },
+  {
+    "label": "Cash Withdrawl",
+    "patterns": [
+      "CASH WITHD",
+      "CASH ADVANCE"
+    ]
+  },
+  {
+    "label": "E-Transfer",
+    "patterns": [
+      "E-TRANSFER"
+    ]
+  },
+  {
+    "label": "Transfer",
+    "patterns": [
+      "PAYMENT - THANK YOU"
+    ]
+  },
+  {
+    "label": "Food",
+      "patterns": [
+      "FRESH ON FRONT",
+      "RESTAUR",
+      "RICE",
+      "NOODL",
+      "METRO",
+      "SUBWAY",
+      "RAMEN"
+    ]
+  },
+  {
+    "label": "Transportation",
+    "patterns": [
+      "PRESTO",
+      "UNION BUS",
+      "BIKE SHARE TORONTO",
+      "UBER",
+      "Uber"
+    ]
+  },
+  {
+    "label": "Travel",
+    "patterns": [
+      "AIR CAN",
+      "AIRBNB",
+      "HOTEL"
+    ]
+  },
+  {
+    "label": "Internet/Phone",
+    "patterns": [
+      "FIDO"
+    ]
+  },
+  {
+    "label": "Charity",
+    "patterns": [
+      "UW OFFICE OF ADVANCEME",
+      "CHALICE"
+    ]
+  },
+  {
+    "label": "Amazon",
+    "patterns": [
+      "Amazon",
+      "AWS",
+      "AMZN"
+    ]
+  },
+  {
+    "label": "Medical",
+    "patterns": [
+      "OPTOMETRY",
+      "DENTAL"
+    ]
+  },
+  {
+    "label": "Bank",
+    "patterns": [
+      "BALANCE PROTECTION",
+      "ACCT BAL REBATE",
+      "MONTHLY ACCOUNT FEE",
+      "ATM DEP",
+      "SCOTIABANK"
+    ]
+  },
+  {
+    "label": "OSAP",
+    "patterns": [
+      "NSLSC"
+    ]
+  },
+  {
+    "label": "Learning",
+    "patterns": [
+      "TDSB"
+    ]
+  },
+  {
+    "label": "Dog",
+    "patterns": [
+      "PET VALU"
+    ]
+  },
+  {
+    "label": "Etc",
+    "patterns": [
+      "STEAMGAMES",
+      "YOUR DOLLAR"
+    ]
+  }
+]
