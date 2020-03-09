@@ -44,10 +44,12 @@ def generateKey(date, desc, outflow, inflow):
 
 def accum(results, category, inflow, outflow):
   if outflow != '':
+    outflow = outflow.replace(',', '')
     results[category] -= float(outflow)
     results['Total'] -= float(outflow)
-  
+
   if inflow != '':
+    inflow = inflow.replace(',', '')
     results[category] += float(inflow)
     results['Total'] += float(inflow)
 
@@ -55,9 +57,19 @@ def parse_file(file, source):
   reader = csv.reader(file, delimiter=',')
   for row in reader:
     if source == 'amex':
-      [date, desc, inflow, outflow] = row
-      inflow = inflow[1:]
-      outflow = outflow[1:]
+      [date, desc, flow, flow2] = row[:5] #, _, _, _, _, _, _] = row
+
+      # WTF Amex
+      if flow == '':
+        flow = flow2
+
+      if flow[0] == '-':
+        inflow = flow[2:] # omit - and $
+        outflow = '0'
+      else:
+        inflow = '0'
+        outflow = flow[1:] # omit $
+
       [day, month, year] = date.split(' ')
       month = month_dict[month]
     elif source == 'td':
@@ -82,14 +94,14 @@ def parse_file(file, source):
       if matched is None:
         continue
 
-      print 'Categorizing {} as {} ({}-{})'.format(desc, category, inflow, outflow)
+      print '[{}] Categorizing {} as {} ({}-{})'.format(source, desc, category, inflow, outflow)
 
       accum(results, category, inflow, outflow)
       break
-    
+
     if matched is None:
       # Couldn't be extracted, enter as a separate column
-      print 'Could not categorize {} ({}-{}) ({})'.format(desc, inflow, outflow, date)
+      print '[{}] Could not categorize {} ({}-{}) ({})'.format(source, desc, inflow, outflow, date)
       if desc not in results:
         results[desc] = 0
         categories.append(desc)
@@ -126,12 +138,3 @@ print '================================================================'
 print ' OUTPUT'
 print '================================================================'
 print output
-
-    
-
-
-
-
-
-
-
