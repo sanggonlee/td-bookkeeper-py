@@ -1,3 +1,6 @@
 *.csv
+*.xls
 *.out
 *.json
+__pycache__
+env.sh
