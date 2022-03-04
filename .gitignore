@@ -4,3 +4,4 @@
 *.json
 __pycache__
 env.sh
+file_conversion.pyc
