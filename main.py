@@ -64,7 +64,7 @@ def accum(results, category, inflow, outflow):
 
 def parse_file(file, source):
     reader = csv.reader(file, delimiter=',')
-    for row in reader:
+    for idx, row in enumerate(reader):
         if source == 'amex':
             [date, desc, flow, flow2] = row[:5]  # , _, _, _, _, _, _] = row
 
@@ -96,9 +96,12 @@ def parse_file(file, source):
 
         key = generateKey(date, desc, outflow, inflow)
         if key in seen:
-            continue
-
-        seen[key] = True
+            if file not in seen[key]: # if same key in the same file, treat it as non-duplicate
+                seen[key].append(file)
+                continue
+        else:
+            seen[key] = []
+        seen[key].append(file)
 
         matched = None
         for entry in patterns_dict:

@@ -24,7 +24,7 @@ def excel_to_csv(filename, provider='amex'):
 
     for rownum in range(sheet.nrows):
         row = sheet.row_values(rownum)
-        if provider is 'amex':
+        if provider == 'amex':
             date, description, _, amount = row
             if not amex_date_regex.match(date):
                 # Skip headers
