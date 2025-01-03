@@ -89,7 +89,10 @@ def parse_file(file, source):
             month = month_dict[month]
         elif source == 'td':
             [date, desc, outflow, inflow, _total] = row
-            [month, day, year] = date.split('/')
+            if re.compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}").match(date):
+                [year, month, day] = date.replace('"', '').split('-')
+            else:
+                [month, day, year] = date.split('/')
 
         if month != target_month or year != target_year:
             continue
